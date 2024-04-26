@@ -74,3 +74,31 @@ qiime demux summarize \
 --i-data ./Wells_no_primer.qza \
 --o-visualization  ./Wells_Summary.qzv 
 
+cd .. 
+
+mkdir denoising 
+
+qiime dada2 denoise-paired \
+    --i-demultiplexed-seqs /home/users/nlf1022/fish_final/no_primer/GreatBay_no_primer.qza  \
+    --p-trunc-len-f  120 \
+    --p-trunc-len-r 115 \
+    --p-trim-left-f 0 \
+    --p-trim-left-r 0 \
+    --p-n-threads 4 \
+    --o-denoising-stats /home/users/nlf1022/fish_final/denoising/GreatBay_denoising-stats.qza \
+    --o-table /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qza \
+    --o-representative-sequences /home/users/nlf1022/fish_final/denoising/GreatBay_rep-seqs.qza
+
+
+Not yet used: 
+
+qiime dada2 denoise-paired \
+    --i-demultiplexed-seqs /home/users/nlf1022/fish_final/no_primer/Wells_no_primer.qza  \
+    --p-trunc-len-f  120 \
+    --p-trunc-len-r 115 \
+    --p-trim-left-f 0 \
+    --p-trim-left-r 0 \
+    --p-n-threads 4 \
+    --o-denoising-stats /home/users/nlf1022/fish_final/denoising/Wells_denoising-stats.qza \
+    --o-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
+    --o-representative-sequences /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qza0
