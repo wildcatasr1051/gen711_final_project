@@ -102,3 +102,19 @@ qiime dada2 denoise-paired \
     --o-denoising-stats /home/users/nlf1022/fish_final/denoising/Wells_denoising-stats.qza \
     --o-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
     --o-representative-sequences /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qza0
+
+qiime metadata tabulate \
+    --m-input-file /home/users/nlf1022/fish_final/denoising/GreatBay_denoising-stats.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/GreatBay_denoising-stats.qzv
+
+qiime metadata tabulate \
+    --m-input-file /home/users/nlf1022/fish_final/denoising/Wells_denoising-stats.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_denoising-stats.qzv
+
+qiime feature-table tabulate-seqs \
+        --i-data /home/users/nlf1022/fish_final/denoising/GreatBay_rep-seqs.qza \
+        --o-visualization /home/users/nlf1022/fish_final/denoising/GreatBay_rep-seqs.qzv
+
+qiime feature-table tabulate-seqs \
+        --i-data /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qza \
+        --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qzv
