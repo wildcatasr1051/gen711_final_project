@@ -6,6 +6,8 @@ cd fish_final
 
 mkdir -p raw_data
 
+cd raw_data
+
 cp -r /tmp/gen711_project_data//eDNA-fqs/mifish/fastqs/ .
 
 cp /tmp/gen711_project_data/eDNA-fqs/mifish/GreatBay-Metadata.tsv .
@@ -62,4 +64,13 @@ qiime cutadapt trim-paired \
     --verbose \
     --o-trimmed-sequences ./no_primer/Wells_no_primer.qza
 
+cd no_primer
+
+qiime demux summarize \
+--i-data ./GreatBay_no_primer.qza \
+--o-visualization  ./GreatBay_Summary.qzv 
+
+qiime demux summarize \
+--i-data ./Wells_no_primer.qza \
+--o-visualization  ./Wells_Summary.qzv 
 
