@@ -4,26 +4,41 @@ mkdir -p fish_final
    
    A directiory was created titled "fish_final". This is the directory where everything is done within.
 
+
 cd fish_final 
+ 
    Changed directory to be within "finsh_final"
 
+
 mkdir -p raw_data
+
    Withing the "fish_final" directory, a new directory titled "raw_data" was created.
 
+
 cd raw_data
+  
    Changed directory to be within the "raw_data" directory. This directory will contain any of the raw, untouched data used in this project.
 
+
 cp -r /tmp/gen711_project_data//eDNA-fqs/mifish/fastqs/ .
+
    The file "fastqs" was copied from the class project data into the current, "raw_data", directory.
 
+
 cp /tmp/gen711_project_data/eDNA-fqs/mifish/GreatBay-Metadata.tsv .
+
    The file "GreatBay-Metadata.tsv" was copied from the class project data into the current, "raw_data", directory.
 
+
 cp /tmp/gen711_project_data/eDNA-fqs/mifish/Wells-Metadata.tsv .
+
    The file "Wells-Metadata.sv" was copied from the class project data into the current, "raw_data", directory.
 
+
 conda activate qiime2-2022.8
+
    The conda environment was changed to qiime2-2022.8 so that all of the future comands (?) will work.
+
 
 
 mkdir fastp.sh
