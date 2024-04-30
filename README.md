@@ -1,6 +1,7 @@
 # gen711_final_project
 
 mkdir -p fish_final
+   
    A directiory was created titled "fish_final". This is the directory where everything is done within.
 
 cd fish_final 
