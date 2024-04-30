@@ -40,10 +40,15 @@ conda activate qiime2-2022.8
    The conda environment was changed to qiime2-2022.8 so that all of the future comands (?) will work.
 
 
-
 mkdir fastp.sh
 
+   Within the current directory a file called "fastp.sh".
+   
+
 cp /tmp/gen711_project_data/scripts/fastp.sh ./fastp.sh
+
+   The file "fastp.sh" was copied from the class project data directory into the created "fastp.sh" file.
+   
 
 chmod +x ./fastp.sh/
 
