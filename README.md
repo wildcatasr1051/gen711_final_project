@@ -51,18 +51,33 @@ cp /tmp/gen711_project_data/scripts/fastp.sh ./fastp.sh
    
 
 chmod +x ./fastp.sh/
+   The permission was changed for the "fastp.sh" file to add executable permission. (IDK what this fully means) 
+
+
+cd ..
+   The directory was changed to the previous directory "fish_final".
+
 
 mkdir trimmed_fastqs
+   A directory named "trimmed_fastqs" was created in the "fish_final" directory. This file will contained the trimmed fastq data.
+
 
 cd raw_data
+   The directory was changed to "raw_data".
+   
 
 cd fastqs
+   The directory was changed to "fastqs"
+
 
 qiime tools import \
    --type "SampleData[PairedEndSequencesWithQuality]"  \
    --input-format CasavaOneEightSingleLanePerSampleDirFmt \
    --input-path ./GreatBay/ \
    --output-path /home/users/nlf1022/fish_final/trimmed_fastqs/GreatBay_trimmed
+
+   
+
    
 qiime tools import \
    --type "SampleData[PairedEndSequencesWithQuality]"  \
