@@ -165,3 +165,24 @@ qiime feature-table tabulate-seqs \
 qiime feature-table tabulate-seqs \
         --i-data /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qza \
         --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qzv
+
+mkdir taxonomy
+
+cd denoising 
+
+qiime feature-table merge-seqs \
+   --i-data ./GreatBay_rep-seqs.qza \
+   --i-data ./Wells_rep-seqs.qza \
+   --o-merged-data ./combined_rep-seqs.qza
+
+qiime feature-table merge \
+  --i-tables ./GreatBay_feature_table.qza \
+  --i-tables ./Wells_feature_table.qza \
+  --o-merged-table ./combined_feature_table.qza
+
+qiime feature-classifier classify-sklearn \
+  --i-classifier /tmp/gen711_project_data/eDNA-fqs/mifish/ref-database/mitofish-classifier.qza \
+  --i-reads ./combined_rep-seqs.qza \
+  --o-classification /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza
+
+        
