@@ -81,18 +81,26 @@ qiime tools import \
    --input-path ./GreatBay/ \
    --output-path /home/users/nlf1022/fish_final/trimmed_fastqs/GreatBay_trimmed
 
-   
+Command uses QIIME software to import paired-end sequence data with quality information.
 
-   
 qiime tools import \
    --type "SampleData[PairedEndSequencesWithQuality]"  \
    --input-format CasavaOneEightSingleLanePerSampleDirFmt \
    --input-path ./Wells/ \
    --output-path /home/users/nlf1022/fish_final/trimmed_fastqs/Wells_trimmed
 
+Command uses QIIME to import paired-end sequencing data with quality scores.
+
+
 cd /home/users/nlf1022/fish_final
 
+Changes directory 
+
+
 mkdir no_primer
+
+Creates a new directory named "no_primer" in the current working directory. 
+
 
 qiime cutadapt trim-paired \
     --i-demultiplexed-sequences /home/users/nlf1022/fish_final/trimmed_fastqs/GreatBay_trimmed.qza \
@@ -103,6 +111,9 @@ qiime cutadapt trim-paired \
     --p-match-adapter-wildcards \
     --verbose \
     --o-trimmed-sequences ./no_primer/GreatBay_no_primer.qza
+
+Trims primer sequences from paired-end sequences stored in the file. Specifies the use of 4 processing cores and provides forward and reverse primer sequencing for trimming. Discards 
+
     
 qiime cutadapt trim-paired \
     --i-demultiplexed-sequences /home/users/nlf1022/fish_final/trimmed_fastqs/Wells_trimmed.qza \
