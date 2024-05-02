@@ -196,4 +196,8 @@ qiime feature-classifier classify-sklearn \
   --i-reads ./combined_rep-seqs.qza \
   --o-classification /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza
 
-        
+cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv /home/users/nlf1022/fish_final/raw_data
+
+
+
+
