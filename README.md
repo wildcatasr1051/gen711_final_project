@@ -4,75 +4,54 @@ mkdir -p fish_final
    
    A directiory was created titled "fish_final". This is the directory where everything is done within.
 
+change directory to "fish_final"
 
-cd fish_final 
+   cd fish_final 
  
-   Changed directory to be within "finsh_final"
+Within the "fish_final" directory create a "raw_data" directory
 
-
-mkdir -p raw_data
-
-   Withing the "fish_final" directory, a new directory titled "raw_data" was created.
-
-
-cd raw_data
-  
-   Changed directory to be within the "raw_data" directory. This directory will contain any of the raw, untouched data used in this project.
-
-
-cp -r /tmp/gen711_project_data//eDNA-fqs/mifish/fastqs/ .
-
-   The file "fastqs" was copied from the class project data into the current, "raw_data", directory.
-
-
-cp /tmp/gen711_project_data/eDNA-fqs/mifish/GreatBay-Metadata.tsv .
-
-   The file "GreatBay-Metadata.tsv" was copied from the class project data into the current, "raw_data", directory.
-
-
-cp /tmp/gen711_project_data/eDNA-fqs/mifish/Wells-Metadata.tsv .
-
-   The file "Wells-Metadata.sv" was copied from the class project data into the current, "raw_data", directory.
-
-
-conda activate qiime2-2022.8
-
-   The conda environment was changed to qiime2-2022.8 so that all of the future comands (?) will work.
-
-
-mkdir fastp.sh
-
-   Within the current directory a file called "fastp.sh".
+      mkdir -p raw_data
    
+Change directory to be within the "raw_data" directory. This directory contains any raw, untouched data
 
-cp /tmp/gen711_project_data/scripts/fastp.sh ./fastp.sh
-
-   The file "fastp.sh" was copied from the class project data directory into the created "fastp.sh" file.
-   
-
-chmod +x ./fastp.sh/
-
-   The permission was changed for the "fastp.sh" file to add executable permission. (IDK what this fully means) 
-
-
-cd ..
-
-   The directory was changed to the previous directory "fish_final".
-
-
-mkdir trimmed_fastqs
+      cd raw_data
   
-   A directory named "trimmed_fastqs" was created in the "fish_final" directory. This file will contained the trimmed fastq data.
+Copy files "fastqs," "GreatBay-Metadata.tsv," and "Wells-Metadata.sv" into directory "raw_data
+
+      cp -r /tmp/gen711_project_data//eDNA-fqs/mifish/fastqs/ .
+
+      cp /tmp/gen711_project_data/eDNA-fqs/mifish/GreatBay-Metadata.tsv .
+
+      cp /tmp/gen711_project_data/eDNA-fqs/mifish/Wells-Metadata.tsv .
 
 
-cd raw_data
+Activate the qiime2-2022.8 conda environment 
+
+      conda activate qiime2-2022.8
+
+Make directory "fastp.sh" in current directory
+
+      mkdir fastp.sh
+   
+Copy "fastp.sh" into fastp.sh directory
+
+      cp /tmp/gen711_project_data/scripts/fastp.sh ./fastp.sh 
+
+
+Change permissions on fastp.sh to run qiime analysis
  
-   The directory was changed to "raw_data".
-   
+   chmod +x ./fastp.sh/
 
-cd fastqs
+Return to previous directory "fish_final"
+   cd ..
 
-   The directory was changed to "fastqs"
+
+Make directory "trimmed_fastqs" in "fish_final" 
+   mkdir trimmed_fastqs
+  
+   cd raw_data
+
+   cd fastqs
 
 
 qiime tools import \
