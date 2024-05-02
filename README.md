@@ -177,11 +177,13 @@ qiime feature-classifier classify-sklearn \
 
 cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv /home/users/nlf1022/fish_final/raw_data
 
-
-
 qiime feature-table filter-samples \
   --i-table ./combined_feature_table.qza \
   --m-metadata-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
   --o-filtered-table ./feature_table_filtered.qza
 
-
+qiime taxa barplot \
+     --i-table ./feature_table_filtered.qza \
+     --m-metadata-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
+     --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \
+     --o-visualization ./filtered-barplot.qzv
