@@ -1,22 +1,24 @@
+#!/bin/bash
+
 # gen711_final_project
 
-mkdir -p fish_final
-   
-   A directiory was created titled "fish_final". This is the directory where everything is done within.
+#Mkdir fish_final: this will contain all files for final project
 
-change directory to "fish_final"
+   mkdir -p fish_final
+
+#Change directory to "fish_final"
 
    cd fish_final 
  
-Within the "fish_final" directory create a "raw_data" directory
+#Within the "fish_final" directory create a "raw_data" directory
 
       mkdir -p raw_data
    
-Change directory to be within the "raw_data" directory. This directory contains any raw, untouched data
+#Change directory to be within the "raw_data" directory. This directory contains any raw, untouched data
 
       cd raw_data
   
-Copy files "fastqs," "GreatBay-Metadata.tsv," and "Wells-Metadata.sv" into directory "raw_data
+#Copy files "fastqs," "GreatBay-Metadata.tsv," and "Wells-Metadata.sv" into directory "raw_data
 
       cp -r /tmp/gen711_project_data//eDNA-fqs/mifish/fastqs/ .
 
@@ -25,28 +27,29 @@ Copy files "fastqs," "GreatBay-Metadata.tsv," and "Wells-Metadata.sv" into direc
       cp /tmp/gen711_project_data/eDNA-fqs/mifish/Wells-Metadata.tsv .
 
 
-Activate the qiime2-2022.8 conda environment 
+#Activate the qiime2-2022.8 conda environment 
 
       conda activate qiime2-2022.8
 
-Make directory "fastp.sh" in current directory
+#Make directory "fastp.sh" in current directory
 
       mkdir fastp.sh
    
-Copy "fastp.sh" into fastp.sh directory
+#Copy "fastp.sh" into fastp.sh directory
 
       cp /tmp/gen711_project_data/scripts/fastp.sh ./fastp.sh 
 
 
-Change permissions on fastp.sh to run qiime analysis
+#Change permissions on fastp.sh to run qiime analysis
  
    chmod +x ./fastp.sh/
 
-Return to previous directory "fish_final"
+#Return to previous directory "fish_final"
    cd ..
 
 
-Make directory "trimmed_fastqs" in "fish_final" 
+#Make directory "trimmed_fastqs" in "fish_final" 
+ 
    mkdir trimmed_fastqs
   
    cd raw_data
@@ -60,23 +63,20 @@ qiime tools import \
    --input-path ./GreatBay/ \
    --output-path /home/users/nlf1022/fish_final/trimmed_fastqs/GreatBay_trimmed
 
-Command uses QIIME software to import paired-end sequence data with quality information.
+#Command uses QIIME software to import paired-end sequence data with quality information.
 
-qiime tools import \
-   --type "SampleData[PairedEndSequencesWithQuality]"  \
-   --input-format CasavaOneEightSingleLanePerSampleDirFmt \
-   --input-path ./Wells/ \
-   --output-path /home/users/nlf1022/fish_final/trimmed_fastqs/Wells_trimmed
+   qiime tools import \
+      --type "SampleData[PairedEndSequencesWithQuality]"  \
+      --input-format CasavaOneEightSingleLanePerSampleDirFmt \
+      --input-path ./Wells/ \
+      --output-path /home/users/nlf1022/fish_final/trimmed_fastqs/Wells_trimmed
 
-Command uses QIIME to import paired-end sequencing data with quality scores.
+#Command uses QIIME to import paired-end sequencing data with quality scores.
 
-
-cd /home/users/nlf1022/fish_final
-
-Changes directory 
-
-
-mkdir no_primer
+   cd /home/users/nlf1022/fish_final
+   
+#Create a new directory named "no_primer" in current working directory
+   mkdir no_primer
 
 Creates a new directory named "no_primer" in the current working directory. 
 
