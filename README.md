@@ -2,17 +2,17 @@
 
 mkdir -p fish_final
    
-   # A directiory was created titled "fish_final". This is the directory where everything is done within.
+    A directiory was created titled "fish_final". This is the directory where everything is done within.
 
 
 cd fish_final 
  
-   # Changed directory to be within "finsh_final"
+    Changed directory to be within "finsh_final"
 
 
 mkdir -p raw_data
 
-  # Withing the "fish_final" directory, a new directory titled "raw_data" was created.
+   Withing the "fish_final" directory, a new directory titled "raw_data" was created.
 
 
 cd raw_data
