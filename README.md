@@ -200,4 +200,9 @@ cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv /home/users/nlf1
 
 
 
+qiime feature-table filter-samples \
+  --i-table ./combined_feature_table.qza \
+  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
+  --o-filtered-table ./feature_table_filtered.qza
+
 
