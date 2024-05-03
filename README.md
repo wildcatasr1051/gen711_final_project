@@ -198,24 +198,17 @@ qiime taxa barplot
    --i-taxonomy ~/fish_final/taxonomy/taxonomy.qza \     
    --o-visualization ~/fish_final/taxonomy/barplot.qzv
 
-cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv ~/fish_final/raw_data
+cp /tmp/gen711_project_data/eDNA-fqs/mifish/new_meta.tsv ~/fish_final/raw_data
 
 #Get a gzv file to visually check if the metadata was good to use.
-      qiime metadata tabulate \
-        --m-input-file ~/fish_final/raw_data/mifish-metadata.tsv \
-        --o-visualization ~/fish_final/raw_data/tabulated-metadata.qzv
-
-
-
-
-
-Will be editing later :)
-
+qiime metadata tabulate \
+      --m-input-file ~/fish_final/raw_data/new_meta.tsv \
+      --o-visualization ~/fish_final/raw_data/tabulated-metadata.qzv
+        
 qiime feature-table filter-samples \
   --i-table ./combined_feature_table.qza \
   --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
   --o-filtered-table ./feature_table_filtered.qza
-
 
 qiime feature-table summarize \
     --i-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
@@ -233,36 +226,26 @@ qiime feature-table summarize \
     --i-table /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qza \
     --o-visualization /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qzv
 
-
-
-
-
-qiime feature-table filter-samples \
-  --i-table ./combined_feature_table.qza \
-  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
-  --o-filtered-table ./feature_table_filtered.qza
-
-
 qiime taxa barplot \
-     --i-table ./combined_feature_table.qza \
-     --m-metadata-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
+     --i-table /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qza \
+     --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
      --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \
-     --o-visualization ./filtered-barplot.qzv  
+     --o-visualization /home/users/nlf1022/fish_final/taxonomy/filtered-barplot.qzv  
 
 qiime phylogeny align-to-tree-mafft-fasttree \
-  --i-sequences ./combined_rep-seqs.qza \
+  --i-sequences /home/users/nlf1022/fish_final/denoising/combined_rep-seqs.qza \
   --o-alignment /home/users/nlf1022/fish_final/taxonomy/alignments \
   --o-masked-alignment /home/users/nlf1022/fish_final/taxonomy/masked-alignment \
   --o-tree /home/users/nlf1022/fish_final/taxonomy/unrooted-tree \
   --o-rooted-tree /home/users/nlf1022/fish_final/taxonomy/rooted-tree \
   --p-n-threads 4
-
-
+  
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny /home/users/nlf1022/fish_final/taxonomy/rooted-tree.qza \
-  --i-table ./combined_feature_table.qza \
+  --i-table /home/users/nlf1022/fish_final/denoising/combined_feature_table.qza \
   --p-sampling-depth 500 \
-  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv  \
+  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv  \
   --p-n-jobs-or-threads 4 \
-  --output-dir /home/users/nlf1022/fish_final/taxonomy/core-metrics
-     
+  --output-dir /home/users/nlf1022/fish_final/taxonomy/core-metric
+
+
