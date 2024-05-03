@@ -205,39 +205,54 @@ cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv ~/fish_final/raw
         --m-input-file ~/fish_final/raw_data/mifish-metadata.tsv \
         --o-visualization ~/fish_final/raw_data/tabulated-metadata.qzv
 
- 
+qiime feature-table summarize \
+    --i-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qzv
 
-
-
-
-
+qiime feature-table summarize \
+    --i-table /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qzv
+    
+qiime feature-table summarize \
+    --i-table /home/users/nlf1022/fish_final/denoising/combined_feature_table.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/combined_feature_table.qzv
 
    
+
+qiime feature-table summarize \
+    --i-table /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qzv
+
+
+
+
+  
 qiime feature-table filter-samples \
   --i-table ./combined_feature_table.qza \
-  --m-metadata-file ~/fish_final/raw_data/metadata.tsv \
+  --p-min-features 200 \
   --o-filtered-table ./feature_table_filtered.qza
+
 
 qiime taxa barplot \
      --i-table ./feature_table_filtered.qza \
-     --m-metadata-file ~/fish_final/raw_data/metadata.tsv \
-     --i-taxonomy ~/fish_final/taxonomy/taxonomy.qza \
+     --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv \
+     --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \
      --o-visualization ./filtered-barplot.qzv  
 
 qiime phylogeny align-to-tree-mafft-fasttree \
   --i-sequences ./combined_rep-seqs.qza \
-  --o-alignment ~/fish_final/taxonomy/alignments \
-  --o-masked-alignment ~/fish_final/taxonomy/masked-alignment \
-  --o-tree ~/fish_final/taxonomy/unrooted-tree \
-  --o-rooted-tree ~/fish_final/taxonomy/rooted-tree \
+  --o-alignment /home/users/nlf1022/fish_final/taxonomy/alignments \
+  --o-masked-alignment /home/users/nlf1022/fish_final/taxonomy/masked-alignment \
+  --o-tree /home/users/nlf1022/fish_final/taxonomy/unrooted-tree \
+  --o-rooted-tree /home/users/nlf1022/fish_final/taxonomy/rooted-tree \
   --p-n-threads 4
 
 
 qiime diversity core-metrics-phylogenetic \
-  --i-phylogeny ~/fish_final/taxonomy/rooted-tree.qza \
+  --i-phylogeny /home/users/nlf1022/fish_final/taxonomy/rooted-tree.qza \
   --i-table ./combined_feature_table.qza \
   --p-sampling-depth 500 \
-  --m-metadata-file ~/fish_final/raw_data/metadata.tsv  \
+  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv  \
   --p-n-jobs-or-threads 4 \
-  --output-dir ~/fish_final/taxonomy/core-metrics
+  --output-dir /home/users/nlf1022/fish_final/taxonomy/core-metrics
      
