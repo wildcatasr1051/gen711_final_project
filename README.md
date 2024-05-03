@@ -131,48 +131,48 @@ mkdir denoising
 create new directory called 'denoising'
 
 qiime dada2 denoise-paired \
-    --i-demultiplexed-seqs /home/users/nlf1022/fish_final/no_primer/GreatBay_no_primer.qza  \
+    --i-demultiplexed-seqs ~/fish_final/no_primer/GreatBay_no_primer.qza  \
     --p-trunc-len-f  120 \
     --p-trunc-len-r 115 \
     --p-trim-left-f 0 \
     --p-trim-left-r 0 \
     --p-n-threads 4 \
-    --o-denoising-stats /home/users/nlf1022/fish_final/denoising/GreatBay_denoising-stats.qza \
-    --o-table /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qza \
-    --o-representative-sequences /home/users/nlf1022/fish_final/denoising/GreatBay_rep-seqs.qza
+    --o-denoising-stats ~/fish_final/denoising/GreatBay_denoising-stats.qza \
+    --o-table ~/fish_final/denoising/GreatBay_feature_table.qza \
+    --o-representative-sequences ~/fish_final/denoising/GreatBay_rep-seqs.qza
 
 Process paired end reads by trimming reads to improve quality and denoise to correct sequencing errors. 
 
 qiime dada2 denoise-paired \
-    --i-demultiplexed-seqs /home/users/nlf1022/fish_final/no_primer/Wells_no_primer.qza  \
+    --i-demultiplexed-seqs ~/fish_final/no_primer/Wells_no_primer.qza  \
     --p-trunc-len-f  120 \
     --p-trunc-len-r 115 \
     --p-trim-left-f 0 \
     --p-trim-left-r 0 \
     --p-n-threads 4 \
-    --o-denoising-stats /home/users/nlf1022/fish_final/denoising/Wells_denoising-stats.qza \
-    --o-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
-    --o-representative-sequences /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qza
+    --o-denoising-stats ~/fish_final/denoising/Wells_denoising-stats.qza \
+    --o-table ~/fish_final/denoising/Wells_feature_table.qza \
+    --o-representative-sequences ~/fish_final/denoising/Wells_rep-seqs.qza
 
 Denoises paired-end sequencing data from input file, trimming sequence for quality
 
 qiime metadata tabulate \
-    --m-input-file /home/users/nlf1022/fish_final/denoising/GreatBay_denoising-stats.qza \
-    --o-visualization /home/users/nlf1022/fish_final/denoising/GreatBay_denoising-stats.qzv
+    --m-input-file ~/fish_final/denoising/GreatBay_denoising-stats.qza \
+    --o-visualization ~/fish_final/denoising/GreatBay_denoising-stats.qzv
 
 Creates a visualization from denoising, allowing easier interpretations of the data.
 
 qiime metadata tabulate \
-    --m-input-file /home/users/nlf1022/fish_final/denoising/Wells_denoising-stats.qza \
-    --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_denoising-stats.qzv
+    --m-input-file ~/fish_final/denoising/Wells_denoising-stats.qza \
+    --o-visualization ~/fish_final/denoising/Wells_denoising-stats.qzv
 
 qiime feature-table tabulate-seqs \
-        --i-data /home/users/nlf1022/fish_final/denoising/GreatBay_rep-seqs.qza \
-        --o-visualization /home/users/nlf1022/fish_final/denoising/GreatBay_rep-seqs.qzv
+        --i-data ~/fish_final/denoising/GreatBay_rep-seqs.qza \
+        --o-visualization ~/fish_final/denoising/GreatBay_rep-seqs.qzv
 
 qiime feature-table tabulate-seqs \
-        --i-data /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qza \
-        --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qzv
+        --i-data ~/fish_final/denoising/Wells_rep-seqs.qza \
+        --o-visualization ~/fish_final/denoising/Wells_rep-seqs.qzv
 
 mkdir taxonomy
 
@@ -191,20 +191,21 @@ qiime feature-table merge \
 qiime feature-classifier classify-sklearn \
   --i-classifier /tmp/gen711_project_data/eDNA-fqs/mifish/ref-database/mitofish-classifier.qza \
   --i-reads ./combined_rep-seqs.qza \
-  --o-classification /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza
+  --o-classification ~/fish_final/taxonomy/taxonomy.qza
 
 qiime taxa barplot      
    --i-table ./combined_feature_table.qza \   
-   --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \     
-   --o-visualization /home/users/nlf1022/fish_final/taxonomy/barplot.qzv
+   --i-taxonomy ~/fish_final/taxonomy/taxonomy.qza \     
+   --o-visualization ~/fish_final/taxonomy/barplot.qzv
 
-cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv /home/users/nlf1022/fish_final/raw_data
+cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv ~/fish_final/raw_data
 
-qiime metadata tabulate \
-  --m-input-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
-  --o-visualization /home/users/nlf1022/fish_final/raw_data/tabulated-metadata.qzv
+#Get a gzv file to visually check if the metadata was good to use.
+      qiime metadata tabulate \
+        --m-input-file ~/fish_final/raw_data/mifish-metadata.tsv \
+        --o-visualization ~/fish_final/raw_data/tabulated-metadata.qzv
 
-   This step was used to get a gzv file to visually check if the metadata was good to use.
+ 
 
 
 
@@ -214,29 +215,29 @@ qiime metadata tabulate \
    
 qiime feature-table filter-samples \
   --i-table ./combined_feature_table.qza \
-  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv \
+  --m-metadata-file ~/fish_final/raw_data/metadata.tsv \
   --o-filtered-table ./feature_table_filtered.qza
 
 qiime taxa barplot \
      --i-table ./feature_table_filtered.qza \
-     --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv \
-     --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \
+     --m-metadata-file ~/fish_final/raw_data/metadata.tsv \
+     --i-taxonomy ~/fish_final/taxonomy/taxonomy.qza \
      --o-visualization ./filtered-barplot.qzv  
 
 qiime phylogeny align-to-tree-mafft-fasttree \
   --i-sequences ./combined_rep-seqs.qza \
-  --o-alignment /home/users/nlf1022/fish_final/taxonomy/alignments \
-  --o-masked-alignment /home/users/nlf1022/fish_final/taxonomy/masked-alignment \
-  --o-tree /home/users/nlf1022/fish_final/taxonomy/unrooted-tree \
-  --o-rooted-tree /home/users/nlf1022/fish_final/taxonomy/rooted-tree \
+  --o-alignment ~/fish_final/taxonomy/alignments \
+  --o-masked-alignment ~/fish_final/taxonomy/masked-alignment \
+  --o-tree ~/fish_final/taxonomy/unrooted-tree \
+  --o-rooted-tree ~/fish_final/taxonomy/rooted-tree \
   --p-n-threads 4
 
 
 qiime diversity core-metrics-phylogenetic \
-  --i-phylogeny /home/users/nlf1022/fish_final/taxonomy/rooted-tree.qza \
+  --i-phylogeny ~/fish_final/taxonomy/rooted-tree.qza \
   --i-table ./combined_feature_table.qza \
   --p-sampling-depth 500 \
-  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv  \
+  --m-metadata-file ~/fish_final/raw_data/metadata.tsv  \
   --p-n-jobs-or-threads 4 \
-  --output-dir /home/users/nlf1022/fish_final/taxonomy/core-metrics
+  --output-dir ~/fish_final/taxonomy/core-metrics
      
