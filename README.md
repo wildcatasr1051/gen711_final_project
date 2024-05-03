@@ -91,7 +91,7 @@ qiime cutadapt trim-paired \
     --verbose \
     --o-trimmed-sequences ./no_primer/GreatBay_no_primer.qza
 
-Trims primer sequences from paired-end sequences stored in the file. Specifies the use of 4 processing cores and provides forward and reverse primer sequencing for trimming. Discards 
+Trims primer sequences from paired-end sequences stored in the file. Specifies the use of 4 processing cores and provides forward and reverse primer sequencing for trimming. 
 
     
 qiime cutadapt trim-paired \
@@ -104,19 +104,31 @@ qiime cutadapt trim-paired \
     --verbose \
     --o-trimmed-sequences ./no_primer/Wells_no_primer.qza
 
+Uses qiime and removes primer sequences from paired end sequencing data, ensuring only sequences where both the specified forward and reverse primers are trimmed are kept. It is using 4 CPU cores.
+
 cd no_primer
+
+change directory to 'no_primer'
 
 qiime demux summarize \
 --i-data ./GreatBay_no_primer.qza \
 --o-visualization  ./GreatBay_Summary.qzv 
 
+Generates a summary visulaization of demultiplexed sequencing data stored in file. 
+
 qiime demux summarize \
 --i-data ./Wells_no_primer.qza \
 --o-visualization  ./Wells_Summary.qzv 
 
+Generates a visualization file that has information like quality and distribution of sequencing reads
+
 cd .. 
 
+change directory to parent directory
+
 mkdir denoising 
+
+create new directory called 'denoising'
 
 qiime dada2 denoise-paired \
     --i-demultiplexed-seqs /home/users/nlf1022/fish_final/no_primer/GreatBay_no_primer.qza  \
@@ -129,6 +141,8 @@ qiime dada2 denoise-paired \
     --o-table /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qza \
     --o-representative-sequences /home/users/nlf1022/fish_final/denoising/GreatBay_rep-seqs.qza
 
+Process paired end reads by trimming reads to improve quality and denoise to correct sequencing errors. 
+
 qiime dada2 denoise-paired \
     --i-demultiplexed-seqs /home/users/nlf1022/fish_final/no_primer/Wells_no_primer.qza  \
     --p-trunc-len-f  120 \
@@ -140,9 +154,13 @@ qiime dada2 denoise-paired \
     --o-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
     --o-representative-sequences /home/users/nlf1022/fish_final/denoising/Wells_rep-seqs.qza
 
+Denoises paired-end sequencing data from input file, trimming sequence for quality
+
 qiime metadata tabulate \
     --m-input-file /home/users/nlf1022/fish_final/denoising/GreatBay_denoising-stats.qza \
     --o-visualization /home/users/nlf1022/fish_final/denoising/GreatBay_denoising-stats.qzv
+
+Creates a visualization from denoising, allowing easier interpretations of the data.
 
 qiime metadata tabulate \
     --m-input-file /home/users/nlf1022/fish_final/denoising/Wells_denoising-stats.qza \
