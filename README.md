@@ -200,32 +200,28 @@ qiime taxa barplot
 
 cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv /home/users/nlf1022/fish_final/raw_data
 
-qiime feature-table filter-samples \
-  --i-table ./combined_feature_table.qza \
-  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
-  --o-filtered-table ./feature_table_filtered.qza
-
 qiime metadata tabulate \
   --m-input-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
   --o-visualization /home/users/nlf1022/fish_final/raw_data/tabulated-metadata.qzv
 
    This step was used to get a gzv file to visually check if the metadata was good to use.
+
+
+
+
+
+
    
 qiime feature-table filter-samples \
   --i-table ./combined_feature_table.qza \
   --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv \
   --o-filtered-table ./feature_table_filtered.qza
 
-
-
-Not working
-(  qiime taxa barplot \
+qiime taxa barplot \
      --i-table ./feature_table_filtered.qza \
      --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv \
      --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \
-     --o-visualization ./filtered-barplot.qzv   )
-
-
+     --o-visualization ./filtered-barplot.qzv  
 
 qiime phylogeny align-to-tree-mafft-fasttree \
   --i-sequences ./combined_rep-seqs.qza \
