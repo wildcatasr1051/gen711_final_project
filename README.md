@@ -205,6 +205,18 @@ cp /tmp/gen711_project_data/eDNA-fqs/mifish/mifish-metadata.tsv ~/fish_final/raw
         --m-input-file ~/fish_final/raw_data/mifish-metadata.tsv \
         --o-visualization ~/fish_final/raw_data/tabulated-metadata.qzv
 
+
+
+
+
+Will be editing later :)
+
+qiime feature-table filter-samples \
+  --i-table ./combined_feature_table.qza \
+  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
+  --o-filtered-table ./feature_table_filtered.qza
+
+
 qiime feature-table summarize \
     --i-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
     --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qzv
@@ -217,8 +229,6 @@ qiime feature-table summarize \
     --i-table /home/users/nlf1022/fish_final/denoising/combined_feature_table.qza \
     --o-visualization /home/users/nlf1022/fish_final/denoising/combined_feature_table.qzv
 
-   
-
 qiime feature-table summarize \
     --i-table /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qza \
     --o-visualization /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qzv
@@ -226,16 +236,16 @@ qiime feature-table summarize \
 
 
 
-  
+
 qiime feature-table filter-samples \
   --i-table ./combined_feature_table.qza \
-  --p-min-features 200 \
+  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
   --o-filtered-table ./feature_table_filtered.qza
 
 
 qiime taxa barplot \
-     --i-table ./feature_table_filtered.qza \
-     --m-metadata-file /home/users/nlf1022/fish_final/raw_data/metadata.tsv \
+     --i-table ./combined_feature_table.qza \
+     --m-metadata-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
      --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \
      --o-visualization ./filtered-barplot.qzv  
 
