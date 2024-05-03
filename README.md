@@ -205,3 +205,24 @@ qiime taxa barplot \
      --m-metadata-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv \
      --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \
      --o-visualization ./filtered-barplot.qzv
+
+qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences ./combined_rep-seqs.qza \
+  --o-alignment /home/users/nlf1022/fish_final/taxonomy/alignments \
+  --o-masked-alignment /home/users/nlf1022/fish_final/taxonomy/masked-alignment \
+  --o-tree /home/users/nlf1022/fish_final/taxonomy/unrooted-tree \
+  --o-rooted-tree /home/users/nlf1022/fish_final/taxonomy/rooted-tree \
+  --p-n-threads 4
+
+
+
+
+
+qiime diversity core-metrics-phylogenetic \
+  --i-phylogeny /home/users/nlf1022/fish_final/taxonomy/rooted-tree.qza \
+  --i-table ./combined_feature_table.qza \
+  --p-sampling-depth 500 \
+  --m-metadata-file /home/users/nlf1022/fish_final/raw_data/mifish-metadata.tsv  \
+  --p-n-jobs-or-threads 4 \
+  --output-dir /home/users/nlf1022/fish_final/taxonomy/core-metrics
+     
