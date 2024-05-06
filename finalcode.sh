@@ -2,7 +2,7 @@
 
 # gen711_final_project
 
-#Mkdir fish_final: this will contain all files for final project
+#Creates new file in home directory called 'fish_final': this will contain all files for final project
 
    mkdir -p fish_final
 
