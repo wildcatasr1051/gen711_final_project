@@ -168,17 +168,23 @@ mkdir taxonomy
 
 cd denoising 
 
-
+#Merge the GreatBay and Wells rep-seq files into a single combined file
 
 qiime feature-table merge-seqs \
    --i-data ./GreatBay_rep-seqs.qza \
    --i-data ./Wells_rep-seqs.qza \
    --o-merged-data ./combined_rep-seqs.qza
 
+#Merge the GreatBay and Wells feature table files into a single combined file
+
 qiime feature-table merge \
   --i-tables ./GreatBay_feature_table.qza \
   --i-tables ./Wells_feature_table.qza \
   --o-merged-table ./combined_feature_table.qza
+
+
+
+
 
 qiime feature-classifier classify-sklearn \
   --i-classifier /tmp/gen711_project_data/eDNA-fqs/mifish/ref-database/mitofish-classifier.qza \
