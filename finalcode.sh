@@ -96,11 +96,11 @@ qiime cutadapt trim-paired \
     --verbose \
     --o-trimmed-sequences ./no_primer/Wells_no_primer.qza
 
+#Change directory to 'no_primer'
+
 cd no_primer
 
-change directory to 'no_primer'
-
-#Generates a visualized summary of demultiplexed sequencing data stored in the file. Use twice, once with the GreatBay data and once with the Wells data.
+#Generate a visualized summary of demultiplexed sequencing data stored in the file. Use twice, once with the GreatBay data and once with the Wells data.
 
 qiime demux summarize \
 --i-data ./GreatBay_no_primer.qza \
@@ -110,13 +110,15 @@ qiime demux summarize \
 --i-data ./Wells_no_primer.qza \
 --o-visualization  ./Wells_Summary.qzv 
 
+#Change back to 'fish_final' directory 
+
 cd .. 
 
-change directory to parent directory
+#create new directory called 'denoising'
 
 mkdir denoising 
 
-create new directory called 'denoising'
+#Process paired end reads by trimming reads to improve quality and denoise to correct sequencing errors. Use for both GreatBay and Wells data.
 
 qiime dada2 denoise-paired \
     --i-demultiplexed-seqs ~/fish_final/no_primer/GreatBay_no_primer.qza  \
@@ -129,8 +131,6 @@ qiime dada2 denoise-paired \
     --o-table ~/fish_final/denoising/GreatBay_feature_table.qza \
     --o-representative-sequences ~/fish_final/denoising/GreatBay_rep-seqs.qza
 
-Process paired end reads by trimming reads to improve quality and denoise to correct sequencing errors. 
-
 qiime dada2 denoise-paired \
     --i-demultiplexed-seqs ~/fish_final/no_primer/Wells_no_primer.qza  \
     --p-trunc-len-f  120 \
@@ -142,17 +142,17 @@ qiime dada2 denoise-paired \
     --o-table ~/fish_final/denoising/Wells_feature_table.qza \
     --o-representative-sequences ~/fish_final/denoising/Wells_rep-seqs.qza
 
-Denoises paired-end sequencing data from input file, trimming sequence for quality
+#Create a visualization from denoising, allowing easier interpretations of the data. Use for both GreatBay and Wells data.
 
 qiime metadata tabulate \
     --m-input-file ~/fish_final/denoising/GreatBay_denoising-stats.qza \
     --o-visualization ~/fish_final/denoising/GreatBay_denoising-stats.qzv
 
-Creates a visualization from denoising, allowing easier interpretations of the data.
-
 qiime metadata tabulate \
     --m-input-file ~/fish_final/denoising/Wells_denoising-stats.qza \
     --o-visualization ~/fish_final/denoising/Wells_denoising-stats.qzv
+
+#Create a visualization from rep-seq files, allowing easier interpretations of the data. Use for both GreatBay and Wells data.
 
 qiime feature-table tabulate-seqs \
         --i-data ~/fish_final/denoising/GreatBay_rep-seqs.qza \
@@ -162,9 +162,13 @@ qiime feature-table tabulate-seqs \
         --i-data ~/fish_final/denoising/Wells_rep-seqs.qza \
         --o-visualization ~/fish_final/denoising/Wells_rep-seqs.qzv
 
+#Create new directory called 'taxonomy'
+
 mkdir taxonomy
 
 cd denoising 
+
+
 
 qiime feature-table merge-seqs \
    --i-data ./GreatBay_rep-seqs.qza \
@@ -249,7 +253,6 @@ qiime emperor biplot \
   --i-biplot /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac_pcoa_biplot.qza \
   --m-sample-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
   --o-visualization /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac_pcoa_biplot
-
 
 qiime diversity alpha-group-significance \
   --i-alpha-diversity /home/users/nlf1022/fish_final/taxonomy/core-metric/shannon_vector.qza \
