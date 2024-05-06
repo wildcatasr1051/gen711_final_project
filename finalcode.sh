@@ -15,9 +15,9 @@
       mkdir -p raw_data
    
 #Change directory to be within the "raw_data" directory. This directory contains any raw, untouched data
-
+   
       cd raw_data
-  
+
 #Copy files "fastqs," "GreatBay-Metadata.tsv," and "Wells-Metadata.sv" into directory "raw_data
 
       cp -r /tmp/gen711_project_data//eDNA-fqs/mifish/fastqs/ .
@@ -25,7 +25,6 @@
       cp /tmp/gen711_project_data/eDNA-fqs/mifish/GreatBay-Metadata.tsv .
 
       cp /tmp/gen711_project_data/eDNA-fqs/mifish/Wells-Metadata.tsv .
-
 
 #Activate the qiime2-2022.8 conda environment 
 
@@ -39,14 +38,13 @@
 
       cp /tmp/gen711_project_data/scripts/fastp.sh ./fastp.sh 
 
-
 #Change permissions on fastp.sh to run qiime analysis
  
    chmod +x ./fastp.sh/
 
 #Return to previous directory "fish_final"
-   cd ..
 
+   cd ..
 
 #Make directory "trimmed_fastqs" in "fish_final" 
  
@@ -56,6 +54,7 @@
 
    cd fastqs
 
+#Command uses QIIME software to import paired-end sequence data with quality information. Repeat for both GreatBay and Wells data
 
 qiime tools import \
    --type "SampleData[PairedEndSequencesWithQuality]"  \
@@ -63,22 +62,18 @@ qiime tools import \
    --input-path ./GreatBay/ \
    --output-path /home/users/nlf1022/fish_final/trimmed_fastqs/GreatBay_trimmed
 
-#Command uses QIIME software to import paired-end sequence data with quality information.
-
    qiime tools import \
       --type "SampleData[PairedEndSequencesWithQuality]"  \
       --input-format CasavaOneEightSingleLanePerSampleDirFmt \
       --input-path ./Wells/ \
       --output-path /home/users/nlf1022/fish_final/trimmed_fastqs/Wells_trimmed
 
-#Command uses QIIME to import paired-end sequencing data with quality scores.
-
    cd /home/users/nlf1022/fish_final
    
 #Create a new directory named "no_primer" in current working directory
-   mkdir no_primer
 
-Creates a new directory named "no_primer" in the current working directory. 
+   mkdir no_primer 
+
 
 
 qiime cutadapt trim-paired \
