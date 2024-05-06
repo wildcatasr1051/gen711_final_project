@@ -54,7 +54,7 @@
 
    cd fastqs
 
-#Command uses QIIME software to import paired-end sequence data with quality information. Repeat for both GreatBay and Wells data
+#Command uses QIIME software to import paired-end sequence data with quality information. Use for both GreatBay and Wells data
 
 qiime tools import \
    --type "SampleData[PairedEndSequencesWithQuality]"  \
@@ -74,7 +74,7 @@ qiime tools import \
 
    mkdir no_primer 
 
-
+#Trims primer sequences from paired-end sequencing data. Specifies the use of 4 processing cores and provides forward and reverse primer sequencing for trimming.
 
 qiime cutadapt trim-paired \
     --i-demultiplexed-sequences /home/users/nlf1022/fish_final/trimmed_fastqs/GreatBay_trimmed.qza \
@@ -86,9 +86,6 @@ qiime cutadapt trim-paired \
     --verbose \
     --o-trimmed-sequences ./no_primer/GreatBay_no_primer.qza
 
-Trims primer sequences from paired-end sequences stored in the file. Specifies the use of 4 processing cores and provides forward and reverse primer sequencing for trimming. 
-
-    
 qiime cutadapt trim-paired \
     --i-demultiplexed-sequences /home/users/nlf1022/fish_final/trimmed_fastqs/Wells_trimmed.qza \
     --p-cores 4 \
@@ -99,23 +96,19 @@ qiime cutadapt trim-paired \
     --verbose \
     --o-trimmed-sequences ./no_primer/Wells_no_primer.qza
 
-Uses qiime and removes primer sequences from paired end sequencing data, ensuring only sequences where both the specified forward and reverse primers are trimmed are kept. It is using 4 CPU cores.
-
 cd no_primer
 
 change directory to 'no_primer'
+
+#Generates a visualized summary of demultiplexed sequencing data stored in the file. Use twice, once with the GreatBay data and once with the Wells data.
 
 qiime demux summarize \
 --i-data ./GreatBay_no_primer.qza \
 --o-visualization  ./GreatBay_Summary.qzv 
 
-Generates a summary visulaization of demultiplexed sequencing data stored in file. 
-
 qiime demux summarize \
 --i-data ./Wells_no_primer.qza \
 --o-visualization  ./Wells_Summary.qzv 
-
-Generates a visualization file that has information like quality and distribution of sequencing reads
 
 cd .. 
 
