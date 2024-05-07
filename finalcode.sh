@@ -162,7 +162,7 @@ qiime feature-table tabulate-seqs \
         --i-data ~/fish_final/denoising/Wells_rep-seqs.qza \
         --o-visualization ~/fish_final/denoising/Wells_rep-seqs.qzv
 
-#Create new directory called 'taxonomy'
+#Create new directory called 'taxonomy' in the 'fish_final' directory. This directory will contain any files pertaining to taxonomy
 
 mkdir taxonomy
 
@@ -182,19 +182,21 @@ qiime feature-table merge \
   --i-tables ./Wells_feature_table.qza \
   --o-merged-table ./combined_feature_table.qza
 
-
-
-
+#Use 'mitofish-classifier' from the temporatry project directory and the comined rep-seqs file to make a a file with the taxonomy of the data
 
 qiime feature-classifier classify-sklearn \
   --i-classifier /tmp/gen711_project_data/eDNA-fqs/mifish/ref-database/mitofish-classifier.qza \
   --i-reads ./combined_rep-seqs.qza \
   --o-classification ~/fish_final/taxonomy/taxonomy.qza
 
+#Use the taxonomy file and the combined feature table file in order to create a barplot
+
 qiime taxa barplot      
    --i-table ./combined_feature_table.qza \   
    --i-taxonomy ~/fish_final/taxonomy/taxonomy.qza \     
    --o-visualization ~/fish_final/taxonomy/barplot.qzv
+
+#Copy 'new_meta.tsv' file from the temporary project directory into raw_data. This is the combined metadata file.
 
 cp /tmp/gen711_project_data/eDNA-fqs/mifish/new_meta.tsv ~/fish_final/raw_data
 
