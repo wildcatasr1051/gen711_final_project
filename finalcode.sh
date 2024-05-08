@@ -200,37 +200,22 @@ qiime taxa barplot
 
 cp /tmp/gen711_project_data/eDNA-fqs/mifish/new_meta.tsv ~/fish_final/raw_data
 
-#Get a gzv file to visually check if the metadata was good to use.
-qiime metadata tabulate \
-      --m-input-file ~/fish_final/raw_data/new_meta.tsv \
-      --o-visualization ~/fish_final/raw_data/tabulated-metadata.qzv
+#Filter the combined feature table and filter it using the metadata
         
 qiime feature-table filter-samples \
   --i-table ./combined_feature_table.qza \
   --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
   --o-filtered-table ./feature_table_filtered.qza
 
-qiime feature-table summarize \
-    --i-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
-    --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qzv
-
-qiime feature-table summarize \
-    --i-table /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qza \
-    --o-visualization /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qzv
-    
-qiime feature-table summarize \
-    --i-table /home/users/nlf1022/fish_final/denoising/combined_feature_table.qza \
-    --o-visualization /home/users/nlf1022/fish_final/denoising/combined_feature_table.qzv
-
-qiime feature-table summarize \
-    --i-table /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qza \
-    --o-visualization /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qzv
+#Create a filtered barplot using the filtered feature table
 
 qiime taxa barplot \
      --i-table /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qza \
      --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
      --i-taxonomy /home/users/nlf1022/fish_final/taxonomy/taxonomy.qza \
      --o-visualization /home/users/nlf1022/fish_final/taxonomy/filtered-barplot.qzv  
+
+#Create phylogony files containing alignment, masked alignment, unrooted tree, and rooted tree using the 'comined_rep-seqs.qza' file/
 
 qiime phylogeny align-to-tree-mafft-fasttree \
   --i-sequences /home/users/nlf1022/fish_final/denoising/combined_rep-seqs.qza \
@@ -239,6 +224,8 @@ qiime phylogeny align-to-tree-mafft-fasttree \
   --o-tree /home/users/nlf1022/fish_final/taxonomy/unrooted-tree \
   --o-rooted-tree /home/users/nlf1022/fish_final/taxonomy/rooted-tree \
   --p-n-threads 4
+
+#
   
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny /home/users/nlf1022/fish_final/taxonomy/rooted-tree.qza \
@@ -273,3 +260,32 @@ qiime diversity beta-group-significance \
   --m-metadata-column site_name \
   --p-pairwise \
   --o-visualization /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac-beta-group-significance
+
+qiime diversity alpha-phylogenetic \
+--i-table /home/users/nlf1022/fish_final/denoising/combined_feature_table.qza \
+--i-phylogeny /home/users/nlf1022/fish_final/taxonomy/rooted-tree.qza \
+--p-metric faith_pd \
+--o-alpha-diversity /home/users/nlf1022/fish_final/taxonomy/core-metric/faith_pd
+
+
+#Codes used to change files into viewable data during troubleshooting:
+
+qiime metadata tabulate \
+      --m-input-file ~/fish_final/raw_data/new_meta.tsv \
+      --o-visualization ~/fish_final/raw_data/tabulated-metadata.qzv
+
+qiime feature-table summarize \
+    --i-table /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/Wells_feature_table.qzv
+
+qiime feature-table summarize \
+    --i-table /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/GreatBay_feature_table.qzv
+    
+qiime feature-table summarize \
+    --i-table /home/users/nlf1022/fish_final/denoising/combined_feature_table.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/combined_feature_table.qzv
+
+qiime feature-table summarize \
+    --i-table /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qza \
+    --o-visualization /home/users/nlf1022/fish_final/denoising/feature_table_filtered.qzv
