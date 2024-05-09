@@ -225,7 +225,7 @@ qiime phylogeny align-to-tree-mafft-fasttree \
   --o-rooted-tree /home/users/nlf1022/fish_final/taxonomy/rooted-tree \
   --p-n-threads 4
 
-#
+#Use the rooted tree, combined feature table, and metadata to create a core metric file. The core metric file contains many different files.
   
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny /home/users/nlf1022/fish_final/taxonomy/rooted-tree.qza \
@@ -235,24 +235,34 @@ qiime diversity core-metrics-phylogenetic \
   --p-n-jobs-or-threads 4 \
   --output-dir /home/users/nlf1022/fish_final/taxonomy/core-metric
 
+#Make a relative rarefied table.
+
 qiime feature-table relative-frequency \
   --i-table /home/users/nlf1022/fish_final/taxonomy/core-metric/rarefied_table.qza \
   --o-relative-frequency-table /home/users/nlf1022/fish_final/taxonomy/core-metric/relative_rarefied_table
+
+#Make an unweighted unifrac pcoa biplot.
 
 qiime diversity pcoa-biplot \
   --i-features /home/users/nlf1022/fish_final/taxonomy/core-metric/relative_rarefied_table.qza \
   --i-pcoa /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac_pcoa_results.qza \
   --o-biplot /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac_pcoa_biplot
 
+#Make the unweighted unifrac pcoa biplot into a viewable file.
+
 qiime emperor biplot \
   --i-biplot /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac_pcoa_biplot.qza \
   --m-sample-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
   --o-visualization /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac_pcoa_biplot
 
+#Make an alpha group significance.
+
 qiime diversity alpha-group-significance \
   --i-alpha-diversity /home/users/nlf1022/fish_final/taxonomy/core-metric/shannon_vector.qza \
   --m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
   --o-visualization /home/users/nlf1022/fish_final/taxonomy/core-metric/alpha-group-significance
+
+#Make an unweighted unifrac beta group.
 
 qiime diversity beta-group-significance \
   --i-distance-matrix /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac_distance_matrix.qza \
@@ -260,6 +270,8 @@ qiime diversity beta-group-significance \
   --m-metadata-column site_name \
   --p-pairwise \
   --o-visualization /home/users/nlf1022/fish_final/taxonomy/core-metric/unweighted_unifrac-beta-group-significance
+
+#Make a faith pd
 
 qiime diversity alpha-phylogenetic \
 --i-table /home/users/nlf1022/fish_final/denoising/combined_feature_table.qza \
