@@ -279,6 +279,11 @@ qiime diversity alpha-phylogenetic \
 --p-metric faith_pd \
 --o-alpha-diversity /home/users/nlf1022/fish_final/taxonomy/core-metric/faith_pd
 
+qiime diversity alpha-group-significance \
+--i-alpha-diversity /home/users/nlf1022/fish_final/taxonomy/core-metric/faith_pd_vector.qza \
+--m-metadata-file /home/users/nlf1022/fish_final/raw_data/new_meta.tsv \
+--o-visualization /home/users/nlf1022/fish_final/taxonomy/core-metric/faith-pd
+
 
 #Codes used to change files into viewable data during troubleshooting:
 
