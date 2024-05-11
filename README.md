@@ -4,12 +4,9 @@ Nicole Farber  Sarah Polagruto  Mandy Rosenberg
 # Background
 
 # Methods
-*
-Created directory ‘fish_final’
-*
-Import raw data into subdirectory
-*
-Copied trimmed poly-g sequences (‘fastp.sh’) 
+*Master directory directory ‘fish_final’
+**Import raw data into subdirectory
+*Copied trimmed poly-g sequences (‘fastp.sh’) 
 Process paired-end sequences for quality scoring  
 Primer sequences need to be trimmed 
 Demultiplex to sort individual samples comes from barcodes  
