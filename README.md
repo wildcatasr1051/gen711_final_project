@@ -30,4 +30,18 @@ Alpha Diversity plot with Faith pd for Wells and Great Bay
 ![Screenshot 2024-05-09 145228](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/19fed847-f81c-4b6c-98f2-c1aea28e5445)
 Alpha Diversity plot with Faith pd for sites 
 
+![Screenshot 2024-05-11 153235](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/4f467ecc-9bd6-48de-a15b-a4c0f0f8ea0e)
+Bray Curtis Emperor 
+
+![Screenshot 2024-05-11 153339](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/0b0e3f1a-84a0-4586-941e-cbf15859bc51)
+Jaccard Emperor 
+
+![Screenshot 2024-05-11 153505](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/9d2683e4-0dae-444c-9036-811529d1dfb6)
+Unweighted Unifrac Emperor
+
+![Screenshot 2024-05-06 121249](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/7b294af1-1996-4c0a-9276-78f0fa9c3f27)
+Unweighted Unifrac Emperor
+
+
+
 
