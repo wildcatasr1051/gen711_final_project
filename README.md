@@ -1,6 +1,9 @@
 # **eDNA Final Project**
 Nicole Farber  Sarah Polagruto  Mandy Rosenberg
 
+# Background
+
+# Methods
 
 # Figures and Results 
 
@@ -52,6 +55,10 @@ Unweighted Unifrac pcoa Biplot Emperor
 ![Screenshot 2024-05-05 164115](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/7cf43d1a-9074-46a1-a1c5-f40f1aef29cd)
 ![Screenshot 2024-05-05 164012](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/f0b1f469-2799-49e6-b2dd-85eb0734bafe)
 Unweighted Unifrac Beta Group Significance 
+
+# Conclusions
+
+
 
 
 
