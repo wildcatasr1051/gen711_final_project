@@ -5,7 +5,7 @@ Nicole Farber  Sarah Polagruto  Mandy Rosenberg
 
 # Methods
 * Master directory directory ‘fish_final’
-**Import raw data into subdirectory
+** Import raw data into subdirectory
 *Copied trimmed poly-g sequences (‘fastp.sh’) 
 Process paired-end sequences for quality scoring  
 Primer sequences need to be trimmed 
