@@ -4,6 +4,54 @@ Nicole Farber  Sarah Polagruto  Mandy Rosenberg
 # Background
 
 # Methods
+Created directory ‘fish_final’
+	Import raw data into subdirectory
+	Copied trimmed poly-g sequences (‘fastp.sh’) 
+Process paired-end sequences for quality scoring  
+Primer sequences need to be trimmed 
+Demultiplex to sort individual samples comes from barcodes  
+Denoise to remove low quality sequencing and align pairs
+Classified merged sequencing against Mitofish database
+Cutadapt was used to trim the paired-end sequences to remove the primer
+	If kept, the alignments would be off due to the primers all being the same for each sequence
+Demux was used to create a visualized summary of the demultiplexed sequencing data
+	This allowed the quality scores to be obtained for the Great Bay and Wells forward and reverse sequences seen on slide 13&14
+Denoising: sequencing errors were removed with Dada2
+Metadata tabulate was used to make any metadata files viewable. Used to make sure the code for the files works and can be understood.
+Feature table merge and feature table merge-seqs were used to combine data from two sequencing runs into one feature table and sequence file
+Feature-classifier classify-sklearn was used to process sequences in the study and compare them to a database of pre-labeled sequences. 
+Then generates classifications for each of the sequences
+
+Taxa barplot creates a bar plot
+This gave the taxonomic breakdown of each of the sites sampled from
+Feature-table filter-samples was used to filter the feature table using the meta data
+Featured-filtered table  filtered bar-plot with the metadata
+Phylogeny align-to-tree-mafft-fasttree creates multiple files pertaining to taxonomy such as rooted and unrooted trees and alignments
+The results of this were used for later tools
+Diversity core-metrics-phylogenetic was used to create a core metric directory containing many different plots
+The plots were used as results or as metrics in statistical tests
+
+Feature-table relative-frequency was used to create a relative rarefied table used for later plots
+Diversity pcoa-biplot was used to create an unweighted unifrac pcoa biplot .qza file
+Emperor biplot was used to make the unerighted unifrac pcoa biplot viewable in qiime
+Diversity alpha-group-significance was used to create an alpha group significance plot using Shannon-entropy 
+Diversity beta-group-significance was used to create an unweighted unifrac beta group significance plot
+Diversity alpha-phylogenetic was used to create an alpha group significance plot using faith pd 
+Diversity alpha-group-significance was used to make the faith pd plot be viewable through qiime
+![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/33226492-59ea-46e1-81e4-65bb7ef7bf52)
+
+![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/c154a6c3-510a-4d1e-8f8f-cdb0cbb587c2)
+
+![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/1e7d0381-fdf5-4a80-8066-c2feccd46429)
+
+![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/88fddda2-9694-45f0-9393-212dd0e3f691)
+
+![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/1d7c34a2-a21e-4b1d-ac88-049b2a9532ad)
+
+![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/4b89b809-9000-41fd-84e5-a93df8c2700f)
+
+![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/7e6df663-2dd9-4130-8313-3ce84668db38)
+
 
 # Figures and Results 
 
