@@ -5,10 +5,9 @@ Nicole Farber  Sarah Polagruto  Mandy Rosenberg
 
 # Methods
 * Master directory directory ‘fish_final’
-** Import raw data into subdirectory
-*Copied trimmed poly-g sequences (‘fastp.sh’) 
-Process paired-end sequences for quality scoring  
-Primer sequences need to be trimmed 
+* Import raw data into subdirectory
+* Copied trimmed poly-g sequences (‘fastp.sh’) 
+* Process paired-end sequences for quality scoring   
 Demultiplex to sort individual samples comes from barcodes  
 Denoise to remove low quality sequencing and align pairs
 Classified merged sequencing against Mitofish database
