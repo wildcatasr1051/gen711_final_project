@@ -45,7 +45,7 @@ Weighted Unifrac Emperor
 ![Screenshot 2024-05-11 153746](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/701b398b-8c84-4f0e-9a7d-1ef591521e37)
 Unweighted Unifrac pcoa Biplot Emperor
 
-![Screenshot 2024-05-05 164115](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/33dbf536-0029-43d3-b01d-5b2fa5900d0c)
+![Screenshot 2024-05-05 163938](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/b3d71bde-00ef-437d-a0aa-d9e4ca5487c7)
 ![Screenshot 2024-05-05 163817](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/21b42b17-feeb-4578-bab8-ebe429dc97b1)
 ![Screenshot 2024-05-05 163709](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/c1305e34-426d-4a1d-b4bf-8baf165cefff)
 ![Screenshot 2024-05-05 163538](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/2dac8288-8a6e-496b-b8c9-1229d81ec64a)
