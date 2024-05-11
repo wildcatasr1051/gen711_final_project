@@ -39,9 +39,8 @@ Jaccard Emperor
 ![Screenshot 2024-05-11 153505](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/9d2683e4-0dae-444c-9036-811529d1dfb6)
 Unweighted Unifrac Emperor
 
-![Screenshot 2024-05-06 121249](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/7b294af1-1996-4c0a-9276-78f0fa9c3f27)
-Unweighted Unifrac Emperor
-
+![Screenshot 2024-05-11 153746](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/701b398b-8c84-4f0e-9a7d-1ef591521e37)
+Unweighted Unifrac pcoa Biplot Emperor
 
 
 
