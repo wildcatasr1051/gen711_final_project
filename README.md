@@ -8,9 +8,9 @@ Nicole Farber  Sarah Polagruto  Mandy Rosenberg
 * Import raw data into subdirectory
 * Copied trimmed poly-g sequences (‘fastp.sh’) 
 * Process paired-end sequences for quality scoring   
-Demultiplex to sort individual samples comes from barcodes  
-Denoise to remove low quality sequencing and align pairs
-Classified merged sequencing against Mitofish database
+* Demultiplexing: sort individual samples comes from barcodes  
+* Denoising: remove low quality sequencing and align pairs
+      * Classified merged sequencing against Mitofish database
 Cutadapt was used to trim the paired-end sequences to remove the primer
 	If kept, the alignments would be off due to the primers all being the same for each sequence
 Demux was used to create a visualized summary of the demultiplexed sequencing data
