@@ -4,9 +4,12 @@ Nicole Farber  Sarah Polagruto  Mandy Rosenberg
 # Background
 
 # Methods
+*
 Created directory ‘fish_final’
-	Import raw data into subdirectory
-	Copied trimmed poly-g sequences (‘fastp.sh’) 
+*
+Import raw data into subdirectory
+*
+Copied trimmed poly-g sequences (‘fastp.sh’) 
 Process paired-end sequences for quality scoring  
 Primer sequences need to be trimmed 
 Demultiplex to sort individual samples comes from barcodes  
@@ -38,20 +41,6 @@ Diversity alpha-group-significance was used to create an alpha group significanc
 Diversity beta-group-significance was used to create an unweighted unifrac beta group significance plot
 Diversity alpha-phylogenetic was used to create an alpha group significance plot using faith pd 
 Diversity alpha-group-significance was used to make the faith pd plot be viewable through qiime
-![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/33226492-59ea-46e1-81e4-65bb7ef7bf52)
-
-![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/c154a6c3-510a-4d1e-8f8f-cdb0cbb587c2)
-
-![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/1e7d0381-fdf5-4a80-8066-c2feccd46429)
-
-![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/88fddda2-9694-45f0-9393-212dd0e3f691)
-
-![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/1d7c34a2-a21e-4b1d-ac88-049b2a9532ad)
-
-![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/4b89b809-9000-41fd-84e5-a93df8c2700f)
-
-![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/7e6df663-2dd9-4130-8313-3ce84668db38)
-
 
 # Figures and Results 
 
