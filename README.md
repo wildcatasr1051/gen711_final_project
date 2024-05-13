@@ -2,25 +2,39 @@
 Nicole Farber  Sarah Polagruto  Mandy Rosenberg
 
 # Background
+* eDNA can be used to monitor biodiversity
+	* Takes samples from a species' habitat
+	* This study uses water at multiple sites to detect fish DNA 
+* Samples taken from two locations: GreatBay (NH)and Wells (ME) Estuaries 
+	* Each had 4 different sites with 3 samples taken from each site
+	* All samples taken during a single season
+* Diversity of species will vary between sites Great Bay and Wells 
+	* Null: species’ diversity will be the same between locations 
+![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/585d9eb9-d0d4-42dc-a05d-7c747f89eb4e)
+
+
+![Raw Data](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/4497e2e4-037d-4cc4-ac54-2ff5825aae55)
 
 # Methods
 * Master directory directory ‘fish_final’
 * Import raw data into subdirectory
 * Copied trimmed poly-g sequences (‘fastp.sh’) 
-* Process paired-end sequences for quality scoring   
-* Demultiplexing: sort individual samples comes from barcodes  
-* Denoising: remove low quality sequencing and align pairs
-- Classified merged sequencing against "Mitofish database"
-- Cutadapt was used to trim the paired-end sequences to remove the primer
-	If kept, the alignments would be off due to the primers all being the same for each sequence
-- Demux was used to create a visualized summary of the demultiplexed sequencing data
-	This allowed the quality scores to be obtained for the Great Bay and Wells forward and reverse sequences seen on slide 13&14
-Denoising: sequencing errors were removed with Dada2
-Metadata tabulate was used to make any metadata files viewable. Used to make sure the code for the files works and can be understood.
-Feature table merge and feature table merge-seqs were used to combine data from two sequencing runs into one feature table and sequence file
-Feature-classifier classify-sklearn was used to process sequences in the study and compare them to a database of pre-labeled sequences. 
-Then generates classifications for each of the sequences
+	* Process paired-end sequences for quality scoring   
+  ### Demultiplexing: sort individual samples comes from barcodes ###
+* Cutadapt was used to trim the paired-end sequences to remove the primer
+		* If kept, the alignments would be off due to the primers all being the same for each sequence
+* Demux was used to create a visualized summary of the demultiplexed sequencing data
+	* This allowed the quality scores to be obtained for the Great Bay and Wells forward and reverse sequences seen on slide 13&14
+### Denoising: remove sequencing errors [Dada2] ###
+* remove low quality sequencing and align pairs
+* Classified merged sequencing against "Mitofish database
+* Metadata tabulate was used to make any metadata files viewable. Used to make sure the code for the files works and can be understood.
+* Feature table merge and feature table merge-seqs were used to combine data from two sequencing runs into one feature table and sequence file
+* Feature-classifier classify-sklearn was used to process sequences in the study and compare them to a database of pre-labeled sequences. 
+	* Then generates classifications for each of the sequences
 
+
+### Taxonomic assignment ###
 Taxa barplot creates a bar plot
 This gave the taxonomic breakdown of each of the sites sampled from
 Feature-table filter-samples was used to filter the feature table using the meta data
@@ -30,6 +44,7 @@ The results of this were used for later tools
 Diversity core-metrics-phylogenetic was used to create a core metric directory containing many different plots
 The plots were used as results or as metrics in statistical tests
 
+### Phylogenetic Configuration 
 Feature-table relative-frequency was used to create a relative rarefied table used for later plots
 Diversity pcoa-biplot was used to create an unweighted unifrac pcoa biplot .qza file
 Emperor biplot was used to make the unerighted unifrac pcoa biplot viewable in qiime
