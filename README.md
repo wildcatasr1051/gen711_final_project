@@ -71,9 +71,9 @@ Without metadata: Looking at occurence of taxa across the combined environmental
 
 With metadata: Looking at the occurence of taxa across the combined evironmental data at the order level. Bar plot depicts relative freqeuency across samples after filtering with metadata. 
 
-The bar plots depicting the taxa with and without the metadata are the same. They both show that in some areas of the Wells and Great Bay have different taxa orders as well as higher or lower biodiversity in certain sample locations.
-
 ![Screenshot 2024-05-09 154344](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/ff4f2327-01cd-4a82-a841-d2a9f1b94cbc)
+
+The bar plots depicting the taxa with and without the metadata are the same. They both show that in some areas of the Wells and Great Bay have different taxa orders as well as higher or lower biodiversity in certain sample locations.
 
 ![Screenshot 2024-05-11 152910](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/f5407ad7-479b-4dbb-8cf4-12985df8a8d0)
 Alpha Diversity plot with Shannon Entropy for Wells and Great Bay (p-value: 0.865)
