@@ -58,10 +58,10 @@ Nicole Farber, Sarah Polagruto,  Mandy Rosenberg
 # Figures and Results 
 
 ![Screenshot 2024-05-03 141615](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/86bc98b0-858e-4dcb-af9b-ee959ff1476f)
-Wells Quality Score
+Wells Quality Score: Shows that the data is of good quality for the Well's data with the middle having a good quality score while the ends have a lower qality for both forward and reverse reads. This is expected of quality scores. 
 
 ![Screenshot 2024-05-03 141818](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/ddcdfc88-4f40-42ff-bf60-20564f78626e)
-Great Bay Quality Score
+Great Bay Quality Score: Shows that the data is of good quality for the Great Bay's data with the middle having a good quality score while the ends have a lower qality for both forward and reverse reads. This is expected of quality scores. 
 
 ![Screenshot 2024-05-09 154254](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/2a578382-121f-4166-ba98-7c6cd6beeff9)
 
