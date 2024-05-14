@@ -80,10 +80,10 @@ Alpha Diversity plot with Shannon Entropy for Wells and Great Bay (p-value: 0.86
 Alpha Diversity plot with Shannon Entropy for sites (p-value: 0.150)
 
 ![Screenshot 2024-05-09 144754](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/3add8bfd-c7ce-48be-b1e9-393a18f9a844)
-Alpha Diversity plot with Faith pd for Wells and Great Bay (p-value: 0.020)
+Alpha Diversity plot with Faith pd for Wells and Great Bay (p-value: 0.020): Examining phylogenetic diversity.
 
 ![Screenshot 2024-05-09 145228](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/19fed847-f81c-4b6c-98f2-c1aea28e5445)
-Alpha Diversity plot with Faith pd for sites (p-value: 0.073)
+Alpha Diversity plot with Faith pd for sites (p-value: 0.073): Low p-value indicates there is significant difference between evolutionary history of species. 
 
 ![Screenshot 2024-05-11 153235](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/4f467ecc-9bd6-48de-a15b-a4c0f0f8ea0e)
 Bray Curtis Emperor: Dissimilarity - calculating composition-based differences between samples. Points represent samples. The closer the points to each other, the more similar they are.  
