@@ -6,7 +6,7 @@ Nicole Farber, Sarah Polagruto,  Mandy Rosenberg
 	* Takes samples from a species' habitat
 	* This study uses water at multiple sites to detect fish DNA 
 * Samples taken from two locations: GreatBay (NH)and Wells (ME) Estuaries 
-	* Each had 4 different sites with 3 samples taken from each site
+	* Each had 3 different sites with 3 samples taken from each site
 	* All samples taken during a single season
 * Diversity of species will vary between sites Great Bay and Wells 
 	* Null: species’ diversity will be the same between locations 
