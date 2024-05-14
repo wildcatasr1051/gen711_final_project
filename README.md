@@ -94,13 +94,13 @@ Bray Curtis Emperor: Dissimilarity - calculating composition-based differences b
 Jaccard Emperor: Displays how communities compare based on presence or absence of speices.
 
 ![Screenshot 2024-05-11 153505](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/9d2683e4-0dae-444c-9036-811529d1dfb6)
-Unweighted Unifrac Emperor
+Unweighted Unifrac Emperor:  considers only the presence or absence of microbial species (OTUs) in the communities being compared. It calculates dissimilarity based on the fraction of branches in the phylogenetic tree that lead exclusively to members of one community or the other.
 
 ![Screenshot 2024-05-11 154031](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/7278064c-ecc5-4dca-a66a-b41d346bfe39)
-Weighted Unifrac Emperor: Takes both presence and abundance of taxa into account. 
+Weighted Unifrac Emperor: Takes both presence and abundance of taxa into account. It calculates dissimilarity by considering the differences in abundance of shared OTUs between communities along the phylogenetic tree.
 
 ![Screenshot 2024-05-11 153746](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/701b398b-8c84-4f0e-9a7d-1ef591521e37)
-Unweighted Unifrac pcoa Biplot Emperor: Considers presence or absence of taxa, looking at the influence of different taxa. 
+Unweighted Unifrac pcoa Biplot Emperor: Considers presence or absence of taxa, looking at the influence of different taxa. It calculates dissimilarity based on the fraction of branches in the phylogenetic tree that lead exclusively to members of one community or the other.
 
 ![Screenshot 2024-05-05 163938](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/b3d71bde-00ef-437d-a0aa-d9e4ca5487c7)
 ![Screenshot 2024-05-05 163817](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/21b42b17-feeb-4578-bab8-ebe429dc97b1)
