@@ -196,7 +196,13 @@ Wes McKinney. (2010b). Data Structures for Statistical Computing in Python . In 
 
 Wes McKinney. (2010c). Data Structures for Statistical Computing in Python . In S. van der Walt & Jarrod Millman (Eds.), Proceedings of the 9th Python in Science Conference (pp. 51–56).
 
+### Outside references ###
+Hayami, K., Sakata, M. K., Inagawa, T., Okitsu, J., Katano, I., Doi, H., Nakai, K., Ichiyanagi, H., Gotoh, R. O., Miya, M., Sato, H., Yamanaka, H., & Minamoto, T. (2020). Effects of sampling seasons and locations on fish environmental DNA metabarcoding in dam reservoirs. Ecology and evolution, 10(12), 5354–5367. https://doi.org/10.1002/ece3.6279
 
+Nguyen, V. M., Young, N., & Cooke, S. J. (2017). A roadmap for knowledge exchange and mobilization research in conservation and natural resource management. Conservation biology : the journal of the Society for Conservation Biology, 31(4), 789–798. https://doi.org/10.1111/cobi.12857
 
+What is demultiplexing?: https://astrobiomike.github.io/amplicon/demultiplexing
+
+Chat-GPT 
 
 
