@@ -1,5 +1,5 @@
 # **eDNA Final Project**
-Nicole Farber Sarah Polagruto  Mandy Rosenberg
+Nicole Farber, Sarah Polagruto,  Mandy Rosenberg
 
 # Background
 * eDNA can be used to monitor biodiversity
