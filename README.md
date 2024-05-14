@@ -13,6 +13,7 @@ Nicole Farber Sarah Polagruto  Mandy Rosenberg
 ![image](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/585d9eb9-d0d4-42dc-a05d-7c747f89eb4e)
 
 
+
 ![Raw Data](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/4497e2e4-037d-4cc4-ac54-2ff5825aae55)
 
 # Methods
