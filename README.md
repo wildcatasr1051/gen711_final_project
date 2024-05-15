@@ -17,8 +17,8 @@ Nicole Farber, Sarah Polagruto,  Mandy Rosenberg
 ![Raw Data](https://github.com/wildcatasr1051/gen711_final_project/assets/158529668/4497e2e4-037d-4cc4-ac54-2ff5825aae55)
 
 # Methods
-* Master directory directory ‘fish_final’
-* Import raw data into subdirectory
+* Kept all files in master directory directory ‘fish_final’
+	* Import raw data into subdirectory
 * Copied trimmed poly-g sequences (‘fastp.sh’) 
 	* Process paired-end sequences for quality scoring
  
@@ -26,27 +26,30 @@ Nicole Farber, Sarah Polagruto,  Mandy Rosenberg
 * Cutadapt was used to trim the paired-end sequences to remove the primer
 		* If kept, the alignments would be off due to the primers all being the same for each sequence
 * Demux was used to create a visualized summary of the demultiplexed sequencing data
-	* This allowed the quality scores to be obtained for the Great Bay and Wells forward and reverse sequences seen on slide 13&14
+	* This allowed the quality scores to be obtained for the Great Bay and Wells forward and reverse sequences
+   
 ### Denoising: remove sequencing errors [Dada2] ###
-* Remove low quality sequencing and align pairs
-* Classified merged sequencing against "Mitofish database
-* Metadata tabulate was used to make any metadata files viewable. Used to make sure the code for the files works and can be understood.
+* Removes low quality sequencing and align pairs
+* Metadata tabulate was used to make any metadata files viewable. Used to make sure the code for the files works and can be understood
+* Classified merged sequencing against "Mitofish" database
 * Feature table merge and feature table merge-seqs were used to combine data from two sequencing runs into one feature table and sequence file
 * Feature-classifier classify-sklearn was used to process sequences in the study and compare them to a database of pre-labeled sequences. 
-	* Then generates classifications for each of the sequences
+	* The feature-classifer classify sklearn generates classifications for each of the sequences
 
 
 ### Taxonomic assignment ###
-* Taxa barplot creates a bar plot
-* This gave the taxonomic breakdown of each of the sites sampled from
+* Taxa barplot creates a stacked bar plot of taxonomic distribution using relative frequncy
+	* The barplot depicts the taxonomic breakdown of each of the sites sampled from both locations
 * Feature-table filter-samples was used to filter the feature table using the meta data
-* Featured-filtered table  filtered bar-plot with the metadata
-* Phylogeny align-to-tree-mafft-fasttree creates multiple files pertaining to taxonomy such as rooted and unrooted trees and alignments
-* The results of this were used for later tools
-* Diversity core-metrics-phylogenetic was used to create a core metric directory containing many different plots
-* The plots were used as results or as metrics in statistical tests
-
+* Featured-filtered table and filtered bar-plot was repeated with the metadata
+  
 ### Phylogenetic Configuration ###
+* Phylogeny align-to-tree-mafft-fasttree creates multiple files pertaining to taxonomy such as rooted and unrooted trees and alignments
+	* The results of the phylogeny-align-to-tree-fasttree were used for later tools
+* Diversity core-metrics-phylogenetic was used to create a core metric directory containing many different plots
+* The core-metrics plots were used as results or as metrics in statistical tests
+
+### Diversity Measure Statiscal Tests ###
 * Feature-table relative-frequency was used to create a relative rarefied table used for later plots
 * Diversity pcoa-biplot was used to create an unweighted unifrac pcoa biplot .qza file
 * Emperor biplot was used to make the unerighted unifrac pcoa biplot viewable in qiime
@@ -80,6 +83,7 @@ Alpha Diversity plot with Shannon Entropy for Wells and Great Bay (p-value: 0.86
 
 ![Screenshot 2024-05-11 152923](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/a4c60333-d58c-4c13-a98c-3068be77fe66)
 Alpha Diversity plot with Shannon Entropy for sites (p-value: 0.150)
+Alpha-diversity measures using shannon entropy indicate no significant difference between biodiversity across locations and samples.
 
 ![Screenshot 2024-05-09 144754](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/3add8bfd-c7ce-48be-b1e9-393a18f9a844)
 Alpha Diversity plot with Faith pd for Wells and Great Bay (p-value: 0.020): Examining phylogenetic diversity.
@@ -91,7 +95,7 @@ Alpha Diversity plot with Faith pd for sites (p-value: 0.073): Low p-value indic
 Bray Curtis Emperor: Dissimilarity - calculating composition-based differences between samples. Points represent samples. The closer the points to each other, the more similar they are.  
 
 ![Screenshot 2024-05-11 153339](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/0b0e3f1a-84a0-4586-941e-cbf15859bc51)
-Jaccard Emperor: Displays how communities compare based on presence or absence of speices.
+Jaccard Emperor: Displays how communities compare based on presence or absence of species.
 
 ![Screenshot 2024-05-11 153505](https://github.com/wildcatasr1051/gen711_final_project/assets/158356198/9d2683e4-0dae-444c-9036-811529d1dfb6)
 Unweighted Unifrac Emperor:  considers only the presence or absence of species (OTUs) in the communities being compared. It calculates dissimilarity based on the fraction of branches in the phylogenetic tree that lead exclusively to members of one community or the other.
